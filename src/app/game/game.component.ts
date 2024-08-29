@@ -10,4 +10,13 @@ import { Component } from '@angular/core';
 })
 export class GameComponent {
 
+  takeCardAnimation = false;
+
+
+  takeCard() {
+    console.log('takecard');
+
+    this.takeCardAnimation = true;
+  }
+
 }

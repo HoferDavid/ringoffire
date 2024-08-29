@@ -1,0 +1,12 @@
+<div class="field">
+
+    <div class="cardStack" [ngStyle]="{'color': 'blue'}">
+
+        @for(count of [0, 1, 2, 3, 4]; track count; let i = $index) {
+            <img [ngStyle]="{'right.px': i * 10, 'rotate.deg': i * 10}" src="/assets/img/cards/card_cover.png" alt="">
+        }
+
+
+    </div>
+
+</div>

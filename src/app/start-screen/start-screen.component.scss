@@ -1,0 +1,31 @@
+.startScreen {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    background-color: rgb(17, 7, 7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > img {
+        height: 100vh;
+    }
+}
+
+.startLabelBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > img {
+        width: 50vw;
+        height: auto;
+        &:hover {
+            cursor: pointer;
+            filter: brightness(1.1);
+        }
+    }
+}

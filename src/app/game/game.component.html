@@ -2,12 +2,18 @@
 
     <div class="cardStack" [ngStyle]="{'color': 'blue'}">
 
-        @for(count of [0, 1, 2, 3]; track count; let i = $index) {
+        @for (count of [0, 1, 2, 3]; track count; let i = $index) {
             <img [ngStyle]="{'right.px': i * 10, 'rotate.deg': i * 10}" src="/assets/img/cards/card_cover.png" alt="">
         }
-        <img (click)="takeCard()" class="cardOnTop" style="right: 25px; rotate:  40deg;" src="/assets/img/cards/card_cover.png" alt="">
+        <img (click)="takeCard()" class="cardOnTop" style="right: 25px" src="/assets/img/cards/card_cover.png" alt="">
+
+
+        @for (card of game.playedCards; track card; let i = $index) {
+            <img class="playedCard" src="/assets/img/cards/{{ card }}.png" alt="">
+        }
+
         @if(takeCardAnimation) {
-            <img (click)="takeCard()" class="takeCard" style="right: 25px; rotate:  40deg;" src="/assets/img/cards/ace_1.png" alt="">
+            <img (click)="takeCard()" class="takeCard" style="right: 25px" src="/assets/img/cards/{{ currentCard }}.png" alt="">
         }
 
     </div>

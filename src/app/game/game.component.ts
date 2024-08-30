@@ -7,26 +7,40 @@ import { Game } from '../../models/game';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './game.component.html',
-  styleUrl: './game.component.scss'
+  styleUrl: './game.component.scss',
 })
 export class GameComponent {
-
   takeCardAnimation = false;
-  game !: Game;
+  currentCard: string = '';
+  game!: Game;
 
   constructor() {
     this.newGame();
   }
-
 
   newGame() {
     this.game = new Game();
     console.log(this.game);
   }
 
-
   takeCard() {
-    this.takeCardAnimation = true;
-  }
+    if (!this.takeCardAnimation) {
+      let card = this.game.stack.pop();
+      if (card != undefined) {
+        this.currentCard = card;
+      }
+      console.log(this.currentCard);
+      this.takeCardAnimation = true;
 
+
+      console.log('new card:', this.game.playedCards);
+      console.log('game is:', this.game);
+
+
+      setTimeout(() => {
+        this.game.playedCards.push(this.currentCard);
+        this.takeCardAnimation = false;
+      }, 900);
+    }
+  }
 }

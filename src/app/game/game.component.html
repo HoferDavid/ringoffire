@@ -1,5 +1,5 @@
-@for (player of game.player; track player; let i = $index) {
-    <app-player [name]="player" [ngStyle]="{'top.px': 100 + (i * 112)}" class="playerPosition"></app-player>
+@for (player of game.players; track player; let i = $index) {
+    <app-player [name]="player" [playerActive]="i == game.currentPlayer" [ngStyle]="{'top.px': 80 + (i * 90)}" class="playerPosition"></app-player>
 }
 
 
@@ -7,7 +7,6 @@
 <div class="field">
 
     <div class="cardStack" [ngStyle]="{'color': 'blue'}">
-
         @for (count of [0, 1, 2, 3]; track count; let i = $index) {
             <img [ngStyle]="{'right.px': i * 10, 'rotate.deg': i * 10}" src="assets/img/cards/card_cover.png" alt="">
         }
@@ -22,12 +21,12 @@
         @if(takeCardAnimation) {
             <img (click)="takeCard()" class="takeCard" style="right: 25px" src="assets/img/cards/{{ currentCard }}.png" alt="">
         }
-
     </div>
 
-    <button mat-fab class="btnAdd">
+    <app-game-rules [card]="currentCard" class="cardBottom"></app-game-rules>
+
+    <button mat-fab (click)="openDialog()" class="btnAdd">
         <mat-icon>add</mat-icon>
       </button>
-
 
 </div>

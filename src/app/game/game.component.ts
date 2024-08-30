@@ -4,11 +4,15 @@ import { Game } from '../../models/game';
 import { PlayerComponent } from "../player/player.component";
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
+import { MatInputModule } from '@angular/material/input';
+import { GameRulesComponent } from "../game-rules/game-rules.component";
 
 @Component({
   selector: 'app-game',
   standalone: true,
-  imports: [CommonModule, PlayerComponent, MatButtonModule, MatIconModule],
+  imports: [CommonModule, PlayerComponent, MatButtonModule, MatIconModule, MatInputModule, GameRulesComponent],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss',
 })
@@ -17,7 +21,7 @@ export class GameComponent {
   currentCard: string = '';
   game!: Game;
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     this.newGame();
   }
 
@@ -45,5 +49,15 @@ export class GameComponent {
         this.takeCardAnimation = false;
       }, 900);
     }
+  }
+
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogAddPlayerComponent);
+
+    dialogRef.afterClosed().subscribe((name: string) => {
+      this.game.players.push(name);
+      console.log(this.game);
+    });
   }
 }

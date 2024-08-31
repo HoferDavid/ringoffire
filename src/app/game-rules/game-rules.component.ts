@@ -14,15 +14,6 @@ export class GameRulesComponent implements OnChanges {
   description: string = '';
   @Input() card: string = '';
 
-
-  ngOnChanges(): void {
-    console.log('current card', this.card);
-    let currentCardNumber = +this.card.split('_')[1];
-    this.title = this.cardAction[currentCardNumber - 1].title;
-    // this.description = this.cardAction[currentCardNumber - 1].description;
-  }
-
-
   cardAction = [
     { title: 'Waterfall', description: 'Everyone has to start drinking at the same time. As soon as player 1 stops drinking, player 2 may stop drinking. Player 3 may stop as soon as player 2 stops drinking, and so on.' },
     { title: 'You', description: 'You decide who drinks' },
@@ -32,10 +23,19 @@ export class GameRulesComponent implements OnChanges {
     { title: 'Chicks', description: 'All girls drink.' },
     { title: 'Heaven', description: 'Put your hands up! The last player drinks!' },
     { title: 'Mate', description: 'Pick a mate. Your mate must always drink when you drink and the other way around.' },
-    { title: 'Thumbmaster', description: '' },
+    { title: 'Thumbmaster', description: 'All girls drink.' },
     { title: 'Men', description: 'All men drink.' },
-    { title: 'Quizmaster', description: '' },
-    { title: 'Never have i ever...', description: 'Say something you nnever did. Everyone who did it has to drink.' },
+    { title: 'Quizmaster', description: 'All girls drink.' },
+    { title: 'Never have i ever...', description: 'Say something you never did. Everyone who did it has to drink.' },
     { title: 'Rule', description: 'Make a rule. Everyone needs to drink when he breaks the rule.' },
   ];
+
+
+  ngOnChanges(): void {
+    if (this.card) {
+      let currentCardNumber = +this.card.split('_')[1];
+      this.title = this.cardAction[currentCardNumber - 1].title;
+      this.description = this.cardAction[currentCardNumber - 1].description;
+    }
+    }
 }

@@ -29,6 +29,7 @@ export class GameComponent {
     this.game = new Game();
   }
 
+
   takeCard() {
     if (!this.takeCardAnimation) {
       let card = this.game.stack.pop();
@@ -43,7 +44,7 @@ export class GameComponent {
       setTimeout(() => {
         this.game.playedCards.push(this.currentCard);
         this.takeCardAnimation = false;
-      }, 900);
+      }, 1000);
     }
   }
 

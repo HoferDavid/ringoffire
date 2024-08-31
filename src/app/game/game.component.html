@@ -5,12 +5,12 @@
 
 <div class="field">
 
-    <div class="cardStack" [ngStyle]="{'color': 'blue'}">
+    <div class="cardStack">
         @for (count of [0, 1, 2, 3]; track count; let i = $index) {
-            <img [ngStyle]="{'right.px': i * 10, 'rotate.deg': i * 10}" src="assets/img/cards/card_cover.png" alt="">
+            <img [ngStyle]="{'right.px': i * 10, 'rotate.deg': i * 10}" src="assets/img/cards/card_cover.png">
         }
 
-        <img (click)="takeCard()" class="cardOnTop" style="right: 25px" src="assets/img/cards/card_cover.png" alt="">
+        <img (click)="takeCard()" class="cardOnTop" [ngStyle]="{'right.px': 25, 'rotate.deg': -4}" src="assets/img/cards/card_cover.png" alt="">
 
 
         @for (card of game.playedCards; track card; let i = $index) {

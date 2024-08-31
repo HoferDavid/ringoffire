@@ -16,6 +16,7 @@
     > img {
         width: 200px;
         position: absolute;
+        border-radius: 12px;
     }
 }
 
@@ -29,12 +30,11 @@
 
 .takeCard {
     animation: takeCardAnimation 1s ease-in-out;
-    // transform: scale(1.2) translateX(200px) translateY(-180px) rotate(-10deg);
 }
 
 .playedCard {
     right: 25px;
-    transform: scale(1) translateX(200px) translateY(-180px) rotate(-10deg);
+    transform: scale(1) translateX(300px) translateY(-200px) rotate(8deg);
 }
 
 @keyframes takeCardAnimation {
@@ -45,7 +45,7 @@
         transform: scale(1.6);
     }
     100% {
-        transform: scale(1) translateX(200px) translateY(-180px) rotate(-10deg);
+        transform: scale(1) translateX(300px) translateY(-200px) rotate(8deg);
     }
 }
 

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ringoffire-f9321": {
+      "hosting": {
+        "ringoffire": [
+          "ringoffire-f9321"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ringoffire-f9321"
+  }
+}

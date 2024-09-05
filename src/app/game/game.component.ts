@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
 import { MatInputModule } from '@angular/material/input';
 import { GameRulesComponent } from "../game-rules/game-rules.component";
+import { GameService } from '../firebase-services/game.service';
 
 @Component({
   selector: 'app-game',
@@ -21,7 +22,7 @@ export class GameComponent {
   currentCard: string = '';
   game!: Game;
 
-  constructor(public dialog: MatDialog) {
+  constructor(public gameService: GameService, public dialog: MatDialog) {
     this.newGame();
   }
 

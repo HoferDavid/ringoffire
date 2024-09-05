@@ -1,3 +1,5 @@
+
+
 export class Game {
   public players: string[] = [];
   public stack: string[] = [];
@@ -15,6 +17,16 @@ export class Game {
   }
 }
 
+
+// function addGame() {
+//   let game: Game = {
+//     players: this.players,
+//     stack: this.stack,
+//     playedCards: this.playedCards,
+//     currentPlayer: this.currentPlayer,
+//   }
+//   this.gameService.addGame(game);
+// }
 
 function shuffle(array: string[]) {
   let currentIndex = array.length;

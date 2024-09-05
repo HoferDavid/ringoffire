@@ -22,12 +22,26 @@ export class GameComponent {
   currentCard: string = '';
   game!: Game;
 
+
   constructor(public gameService: GameService, public dialog: MatDialog) {
     this.newGame();
   }
 
+
   newGame() {
     this.game = new Game();
+    this.addGame();
+  }
+
+
+  addGame() {
+    let game: Game = {
+      players: this.game.players,
+      stack: this.game.stack,
+      playedCards: this.game.playedCards,
+      currentPlayer: this.game.currentPlayer,
+    }
+    this.gameService.addGame(game);
   }
 
 

@@ -10,11 +10,12 @@ import { MatInputModule } from '@angular/material/input';
 import { GameRulesComponent } from "../game-rules/game-rules.component";
 import { GameService } from '../firebase-services/game.service';
 import { ActivatedRoute } from '@angular/router';
+import { PlayerMobileComponent } from "../player-mobile/player-mobile.component";
 
 @Component({
   selector: 'app-game',
   standalone: true,
-  imports: [CommonModule, PlayerComponent, MatButtonModule, MatIconModule, MatInputModule, GameRulesComponent],
+  imports: [CommonModule, PlayerComponent, MatButtonModule, MatIconModule, MatInputModule, GameRulesComponent, PlayerMobileComponent],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss',
 })

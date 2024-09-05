@@ -10,8 +10,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 960px) {
+        overflow: hidden;
+    }
+
     > img {
         height: 50vh;
+
+        @media (max-width: 960px) {
+            height: 36vh;
+        }
     }
 }
 
@@ -22,10 +31,16 @@
     bottom: 440px;
     display: flex;
     justify-content: center;
+
     > img {
-        width: 400px;
+        width: 40vw;
         height: auto;
         transition: 0.2s;
+
+        @media (max-width: 960px) {
+            width: 360px;
+        }
+
         &:hover {
             cursor: pointer;
             filter: brightness(1.1);

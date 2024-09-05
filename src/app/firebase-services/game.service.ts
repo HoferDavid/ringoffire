@@ -24,23 +24,35 @@ export class GameService {
 
   constructor() {
 
+    // this.unsubSingle = onSnapshot(this.getSingleDocRef('games', id), (list) => {
+    //   console.log(list);
+
+    // })
+
+
     this.unsubList = onSnapshot(this.getGameRef(), (list) => {
       list.forEach(element => {
-        console.log(list);
-        console.log(element);
-        console.log(element.id);
-        console.log(element.ref);
+        // console.log(list);
+        // console.log(element);
+        // console.log(element.id);
+        // console.log(element.ref);
         console.log('game update:', element.data());
       })
     });
 
 
+    // this.games$ = collectionData(this.getGameRef())
+    // this.games = this.games$.subscribe((list) => {
+    //   list.forEach(element => {
+    //     console.log(element);
+    //   });
+    // });
+
 
     this.games$ = collectionData(this.getGameRef())
-    this.games = this.games$.subscribe((list) => {
-      list.forEach(element => {
-        console.log(element);
-      });
+    this.games = this.games$.subscribe((game) => {
+        console.log(game);
+
     });
   }
 
@@ -60,8 +72,6 @@ export class GameService {
 
 
   getGameRef() {
-    console.log('getGameRef() test');
-
     return collection(this.firestore, 'games');
   }
 

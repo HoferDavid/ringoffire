@@ -9,6 +9,7 @@ import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player
 import { MatInputModule } from '@angular/material/input';
 import { GameRulesComponent } from "../game-rules/game-rules.component";
 import { GameService } from '../firebase-services/game.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-game',
@@ -21,16 +22,22 @@ export class GameComponent {
   takeCardAnimation = false;
   currentCard: string = '';
   game!: Game;
+  gameId!: string;
 
 
-  constructor(public gameService: GameService, public dialog: MatDialog) {
+  constructor(private route: ActivatedRoute, public gameService: GameService, public dialog: MatDialog) {
     this.newGame();
+    this.route.params.subscribe((params) => {
+      console.log(params);
+      this.gameId = params['id'];
+      console.log(this.gameId);
+    })
   }
 
 
   newGame() {
     this.game = new Game();
-    this.addGame();
+    // this.addGame();
   }
 
 
@@ -43,6 +50,9 @@ export class GameComponent {
     }
     this.gameService.addGame(game);
   }
+
+
+
 
 
   takeCard() {
